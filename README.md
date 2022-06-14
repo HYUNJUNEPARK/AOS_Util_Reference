@@ -5,6 +5,19 @@ BaseFragment</br>
 https://github.com/HYUNJUNEPARK/-Ref-AndroidUI/blob/main/3_ViewPager2_BottomNavigation/app/src/main/java/com/example/viewpager2_bottomnavigation/util/BaseFragment.kt
 -> **원하는 프래그먼트에 상속시킨 후 initView() 를 오버라이딩해 사용**
 
+```kotlin
+//상속 예시
+class AFragment : BaseFragment<FragmentABinding>(R.layout.fragment_a) {
+    override fun initView() {
+        super.initView()
+
+        binding.apply {
+
+        }
+    }
+}
+```
+
 ---
 
 액션바 뒤로가기 버튼</br>
