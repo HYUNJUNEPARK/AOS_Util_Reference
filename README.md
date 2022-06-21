@@ -3,7 +3,7 @@
 
 BaseFragment</br>
 https://github.com/HYUNJUNEPARK/-Ref-AndroidUI/blob/main/3_ViewPager2_BottomNavigation/app/src/main/java/com/example/viewpager2_bottomnavigation/util/BaseFragment.kt </br>
--> **원하는 프래그먼트에 상속시킨 후 initView() 를 오버라이딩해 사용**
+-> **원하는 프래그먼트에 상속시킨 후 initView() 를 오버라이딩해 사용 (dataBinding 사용)**
 
 ```kotlin
 //상속 예시
@@ -17,7 +17,7 @@ class AFragment : BaseFragment<FragmentABinding>(R.layout.fragment_a) {
     }
 }
 ```
-
+<br></br>
 
 Permission</br>
 https://github.com/HYUNJUNEPARK/-Ref-AndoridProgramming/blob/main/5_Permission/app/src/main/java/com/june/permission/Permission.kt </br>
@@ -37,7 +37,28 @@ override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out
     }
 }
 ```
+<br></br>
 
+NetworkConnection</br>
+https://github.com/HYUNJUNEPARK/-Ref-AndoridProgramming/blob/main/8_NetworkConnection/app/src/main/java/com/example/networkstate/NetworkConnectionCheckModule.kt </br>
+-> **Activity onCreate/onDestroy 에 register()/unregister() 해 사용 (생명주기에 맞게 호출해 사용)**
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+    private val networkCheck: NetworkConnectionCallback by lazy { NetworkConnectionCallback(this) }
+    
+    override fun onCreate(savedInstanceState: Bundle?) {
+        //...
+        networkCheck.register()
+    }
+    
+    override fun onDestroy() {
+        //...
+        networkCheck.unregister()
+    }
+}    
+```
+<br></br>
 
 ---
 
