@@ -73,3 +73,7 @@ https://github.com/HYUNJUNEPARK/BasicAOSApp/blob/main/1_BMICalculator/app/src/ma
 
 [Android, 단축키] 내가 자주 사용하는 단축키 정리 for MAC</br>
 https://black-jin0427.tistory.com/186</br>
+
+파이어베이스 gradle 세팅 방법(gradle 7.x 이상)</br>
+https://gift123.tistory.com/68</br>
+https://developer.android.com/studio/releases/gradle-plugin?hl=ko#updating-plugin</br>
