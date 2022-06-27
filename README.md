@@ -60,6 +60,28 @@ class MainActivity : AppCompatActivity() {
 ```
 <br></br>
 
+
+AlertDialog Sample</br>
+
+```
+AlertDialog.Builder(context)
+    .setTitle("권한 설정")
+    .setMessage("권한 거절로 인해 일부기능이 제한됩니다.")
+    .setPositiveButton("취소") { _, _ -> }
+    .setNegativeButton("권한 설정하러 가기") { _, _ ->
+        applicationInfo()
+    }
+    .create()
+    .show()
+
+```
+
+
+
+
+
+<br></br>
+
 ---
 
 액션바 뒤로가기 버튼</br>
