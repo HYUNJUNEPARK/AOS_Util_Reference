@@ -75,10 +75,18 @@ AlertDialog.Builder(context)
     .show()
 
 ```
+<br></br>
 
 
 
+AAR</br>
+Library AAR 파일 생성</br>
+https://cording-cossk3.tistory.com/156</br>
 
+프로젝트 구조 대화상자를 사용하여 종속 항목 추가</br>
+https://developer.android.com/studio/projects/android-library?hl=ko#psd-add-library-dependency</br>
+cf).aar 파일을 Project/app/libs 에 복사</br>
+-> File > Project Structure > Dependencies > Add Jar/Aar Dependency > Step 1 Provide a path to the library file or directory to add 'libs/aar파일명'</br>
 
 <br></br>
 
