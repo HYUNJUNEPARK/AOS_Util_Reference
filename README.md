@@ -77,7 +77,20 @@ AlertDialog.Builder(context)
 ```
 <br></br>
 
+DataBinding</br>
+```
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+    }
+}
+```
+
+
+<br></br>
 
 AAR</br>
 Library AAR 파일 생성</br>
