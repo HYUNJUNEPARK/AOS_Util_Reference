@@ -127,9 +127,21 @@ https://origogi.github.io/android/dark-mode/
 커스텀다이얼로그 데이터 바인딩</br>
 https://github.com/HYUNJUNEPARK/BasicAOSApp/blob/main/1_BMICalculator/app/src/main/java/com/june/androidApp/bmicalculator/ResultDialog.kt
 
-[Android, 단축키] 내가 자주 사용하는 단축키 정리 for MAC</br>
-https://black-jin0427.tistory.com/186</br>
-
 파이어베이스 gradle 세팅 방법(gradle 7.x 이상)</br>
 https://gift123.tistory.com/68</br>
 https://developer.android.com/studio/releases/gradle-plugin?hl=ko#updating-plugin</br>
+
+프래그먼트 화면 전환 시 상태 유지하기 (FragmentManager)</br>
+https://hanyeop.tistory.com/425</br>
+
+Android) Fragment 에서 View Binding 문제점, 제대로 사용하기</br>
+https://yoon-dailylife.tistory.com/57</br>
+
+AOS 외부 앱 실행</br>
+https://www.fun25.co.kr/blog/android-execute-3rdparty-app/?category=003</br>
+
+Android - PackageManager로 Package 정보 가져오기</br>
+https://codechacha.com/ko/android-query-package-info/</br>
+
+파이어베이스 그레들리 셋팅 방법(buildscript 설명 참고)</br>
+https://gift123.tistory.com/68</br>
