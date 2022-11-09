@@ -101,7 +101,15 @@ class MainActivity : AppCompatActivity() {
     }
 }
 ```
+<br></br>
 
+Thread</br>
+```kotlin
+fun showThreadName() {
+    val threadName = Thread.currentThread().name
+    println("Running on thread: $threadName")
+}
+```
 
 <br></br>
 
