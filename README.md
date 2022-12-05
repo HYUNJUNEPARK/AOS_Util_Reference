@@ -155,4 +155,4 @@ https://codechacha.com/ko/android-query-package-info/</br>
 https://gift123.tistory.com/68</br>
 
 Kotlin Enum Class Ex</br>
-https://blog.logrocket.com/kotlin-enum-classes-complete-guide/)</br>
+https://blog.logrocket.com/kotlin-enum-classes-complete-guide/</br>
