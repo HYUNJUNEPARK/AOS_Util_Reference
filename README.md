@@ -153,3 +153,6 @@ https://codechacha.com/ko/android-query-package-info/</br>
 
 파이어베이스 그레들리 셋팅 방법(buildscript 설명 참고)</br>
 https://gift123.tistory.com/68</br>
+
+Kotlin Enum Class Ex</br>
+https://blog.logrocket.com/kotlin-enum-classes-complete-guide/)</br>
