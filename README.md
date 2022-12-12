@@ -113,6 +113,34 @@ fun showThreadName() {
 
 <br></br>
 
+DataCass -> JSON -> String</br>
+```kotlin
+Gson().toJson(
+    ErrorResponse(
+        ExecStatus(
+            code = response.code().toString(),
+            message = message
+        )
+    )
+)
+
+```
+<br></br>
+
+JSONObject에서 원하는 데이터 추출</br>
+```kotlin
+fun extractResponseCode(preferencesResponse: String): String {
+    return try {
+        JSONObject(preferencesResponse).getJSONObject(EXECSTATUS).getString(CODE)
+    } catch (e: Exception) {
+        e.printStackTrace()
+        handleExceptionResponse(e.toString())
+    }
+}
+```
+
+---
+
 AAR</br>
 Library AAR 파일 생성</br>
 https://cording-cossk3.tistory.com/156</br>
@@ -121,10 +149,6 @@ https://cording-cossk3.tistory.com/156</br>
 https://developer.android.com/studio/projects/android-library?hl=ko#psd-add-library-dependency</br>
 cf).aar 파일을 Project/app/libs 에 복사</br>
 -> File > Project Structure > Dependencies > Add Jar/Aar Dependency > Step 1 Provide a path to the library file or directory to add 'libs/aar파일명'</br>
-
-<br></br>
-
----
 
 액션바 뒤로가기 버튼</br>
 https://programmingworld1.tistory.com/15
