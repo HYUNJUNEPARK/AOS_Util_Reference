@@ -146,12 +146,13 @@ build.gradle(.app) buildType 세팅 -> Sync Project with Gradle Files</br>
 ```kotlin
 buildTypes {
     debug {
-        buildConfigField "String", "BASE_URL", "\"http://10.20.30.73:5000/\""
+        buildConfigField "String", "BASE_URL", "\"http://1-.2-.3-.7-:5---/\""
+        buildConfigField "Boolean", "DEBUG_MODE", "true"
     }
     release {
-        minifyEnabled false
-        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        buildConfigField "String", "BASE_URL", "\"http://220.72.230.73:5000/\""
+        //...
+        buildConfigField "String", "BASE_URL", "\"http://2--.7-.2--.7-:5---/\""
+        buildConfigField "Boolean", "DEBUG_MODE", "false"
     }
 }
 ```
