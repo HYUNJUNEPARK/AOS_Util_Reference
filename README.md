@@ -168,8 +168,11 @@ https://developer.android.com/studio/projects/android-library?hl=ko#psd-add-libr
 cf).aar 파일을 Project/app/libs 에 복사</br>
 -> File > Project Structure > Dependencies > Add Jar/Aar Dependency > Step 1 Provide a path to the library file or directory to add 'libs/aar파일명'</br>
 
+BuildConfig.DEBUG가 릴리즈 모드에서도 true가 되는 현상</br>
+https://satisfactoryplace.tistory.com/147</br>
+
 액션바 뒤로가기 버튼</br>
-https://programmingworld1.tistory.com/15
+https://programmingworld1.tistory.com/15</br>
 
 Status bar 색상 변경</br>
 https://origogi.github.io/android/dark-mode/
