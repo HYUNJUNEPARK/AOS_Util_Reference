@@ -1,9 +1,9 @@
-# UsefulReferencelink
+# Useful_Reference
 
 
 BaseFragment</br>
 https://github.com/HYUNJUNEPARK/-Ref-AndroidUI/blob/main/3_ViewPager2_BottomNavigation/app/src/main/java/com/example/viewpager2_bottomnavigation/util/BaseFragment.kt </br>
--> **원하는 프래그먼트에 상속시킨 후 initView() 를 오버라이딩해 사용 (dataBinding 사용)**
+-> **원하는 프래그먼트에 상속시킨 후 initView() 를 오버라이딩해 사용 (dataBinding 사용)**</br>
 
 ```kotlin
 //상속 예시
@@ -41,7 +41,7 @@ override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out
 
 NetworkConnection</br>
 https://github.com/HYUNJUNEPARK/-Ref-AndoridProgramming/blob/main/8_NetworkConnection/app/src/main/java/com/example/networkstate/NetworkConnectionCheckModule.kt </br>
--> **Activity onCreate/onDestroy 에 register()/unregister() 해 사용 (생명주기에 맞게 호출해 사용)**
+-> **Activity onCreate/onDestroy 에 register()/unregister() 해 사용 (생명주기에 맞게 호출해 사용)**</br>
 
 ```kotlin
 class MainActivity : AppCompatActivity() {
@@ -78,6 +78,7 @@ AlertDialog.Builder(context)
 <br></br>
 
 DataBinding</br>
+
 ```
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -90,6 +91,7 @@ class MainActivity : AppCompatActivity() {
 ```
 
 ViewBinding</br>
+
 ```
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -104,6 +106,7 @@ class MainActivity : AppCompatActivity() {
 <br></br>
 
 Thread</br>
+
 ```kotlin
 fun showThreadName() {
     val threadName = Thread.currentThread().name
@@ -114,6 +117,7 @@ fun showThreadName() {
 <br></br>
 
 DataCass -> JSON -> String</br>
+
 ```kotlin
 Gson().toJson(
     ErrorResponse(
@@ -128,6 +132,7 @@ Gson().toJson(
 <br></br>
 
 JSONObject에서 원하는 데이터 추출</br>
+
 ```kotlin
 fun extractResponseCode(preferencesResponse: String): String {
     return try {
@@ -156,6 +161,37 @@ buildTypes {
     }
 }
 ```
+
+<br></br>
+
+
+invoke()</br>
+-'opertor'와 함께 invoke() 함수를 정의하여 클래스 인스턴스를 함수처럼 호출할 수 있다.</br>
+
+```kotlin
+//invoke 가 사용된 use case 예시
+class FormatDateUseCase(userRepository: UserRepository) {
+    private val formatter = SimpleDateFormat(
+        userRepository.getPreferredDateFormat(),
+        userRepository.getPreferredLocale()
+    )
+    
+    operator fun invoke(date: Date): Stirng {
+        return formatter.format(date)
+    }
+}
+
+//use case 호출 예시
+class MyViewModel(formatDataUseCase: FormatDateUseCase): ViewModel() {
+    init {
+        val today = Calendar.getInstance()
+        val todayDate = formateDateUserCase(today)
+    }
+    //...
+}
+
+```
+
 
 ---
 
