@@ -1,10 +1,13 @@
 # Useful_Reference
+---
 
+
+
+---
 
 BaseFragment</br>
 https://github.com/HYUNJUNEPARK/-Ref-AndroidUI/blob/main/3_ViewPager2_BottomNavigation/app/src/main/java/com/example/viewpager2_bottomnavigation/util/BaseFragment.kt </br>
 -> **원하는 프래그먼트에 상속시킨 후 initView() 를 오버라이딩해 사용 (dataBinding 사용)**</br>
-
 ```kotlin
 //상속 예시
 class AFragment : BaseFragment<FragmentABinding>(R.layout.fragment_a) {
@@ -19,25 +22,62 @@ class AFragment : BaseFragment<FragmentABinding>(R.layout.fragment_a) {
 ```
 <br></br>
 
-Permission</br>
-https://github.com/HYUNJUNEPARK/-Ref-AndoridProgramming/blob/main/5_Permission/app/src/main/java/com/june/permission/Permission.kt </br>
--> **권한 요청이 필요한 Activity/Fragment 에서 `Permission(context).checkPermissions()` 호출, override onRequestPermissionResult**
 
+권한</br>
 ```kotlin
-//override onRequestPermissionResult
+private val permissionRequestCode = 999
+
+//필요 권한 리스트
+private val permissionsArray: Array<String> = arrayOf(
+    Manifest.permission.READ_CONTACTS
+)
+
+//권한 요청이 필요한 Activity/Fragment 에서 호출
+fun checkPermissions() {
+    //API 23 이상
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        val isAllPermissionGranted: Boolean = permissionsArray.all { permission ->
+            context.checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED
+        }
+        if (isAllPermissionGranted) {
+            permissionGranted()
+        } else {
+            ActivityCompat.requestPermissions(
+                context as Activity,
+                permissionsArray,
+                permissionRequestCode
+            )
+        }
+    } else {
+      //API 23 미만 
+    }
+}
+
+//override
 override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
     super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-    //result : true(0) 모든 권한 승인 / false(-1) 권한 중 하나라도 거절
-    if (grantResults.all { result -> result == PackageManager.PERMISSION_GRANTED}) { //권한을 모두 승인 받았을 때
-        Permission(this).permissionGranted()
+    if (grantResults.all { it == PackageManager.PERMISSION_GRANTED}) {
+        //권한을 모두 승인 받았을 때
+        permission.permissionGranted()
     }
-    else { //권한 승인이 하나라도 거절되었을 때 -> AlertDialog
-        Permission(this).permissionDenied()
+    else { 
+        //권한 승인이 하나라도 거절되었을 때
+        permission.permissionDenied()
     }
+}
+
+//메서드 내부에서 권한 체크 시 사용
+if (PermissionChecker.checkSelfPermission(context, Manifest.permission.CALL_PHONE)
+    == PermissionChecker.PERMISSION_GRANTED
+) {
+    //권한 승인 시
+} else {
+    //권한 미승인 시
 }
 ```
 <br></br>
+
 
 NetworkConnection</br>
 https://github.com/HYUNJUNEPARK/-Ref-AndoridProgramming/blob/main/8_NetworkConnection/app/src/main/java/com/example/networkstate/NetworkConnectionCheckModule.kt </br>
@@ -61,8 +101,8 @@ class MainActivity : AppCompatActivity() {
 <br></br>
 
 
-AlertDialog Sample</br>
-
+AlertDialog</br>
+-경고창, 팝업창 구현 시 사용</br>
 ```
 AlertDialog.Builder(context)
     .setTitle("권한 설정")
@@ -73,11 +113,11 @@ AlertDialog.Builder(context)
     }
     .create()
     .show()
-
 ```
 <br></br>
 
-DataBinding</br>
+바인딩</br>
+1.DataBinding</br>
 
 ```
 class MainActivity : AppCompatActivity() {
@@ -90,7 +130,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-ViewBinding</br>
+2.ViewBinding</br>
 
 ```
 class MainActivity : AppCompatActivity() {
@@ -105,19 +145,18 @@ class MainActivity : AppCompatActivity() {
 ```
 <br></br>
 
-Thread</br>
 
+Thread</br>
 ```kotlin
 fun showThreadName() {
     val threadName = Thread.currentThread().name
     println("Running on thread: $threadName")
 }
 ```
-
 <br></br>
 
-DataCass -> JSON -> String</br>
 
+DataCass -> JSON -> String</br>
 ```kotlin
 Gson().toJson(
     ErrorResponse(
@@ -127,12 +166,11 @@ Gson().toJson(
         )
     )
 )
-
 ```
 <br></br>
 
-JSONObject에서 원하는 데이터 추출</br>
 
+JSONObject에서 원하는 데이터 추출</br>
 ```kotlin
 fun extractResponseCode(preferencesResponse: String): String {
     return try {
@@ -143,11 +181,10 @@ fun extractResponseCode(preferencesResponse: String): String {
     }
 }
 ```
-
 <br></br>
 
-build.gradle(.app) buildType 세팅 -> Sync Project with Gradle Files</br>
 
+build.gradle(.app) buildType 세팅 -> Sync Project with Gradle Files</br>
 ```kotlin
 buildTypes {
     debug {
@@ -161,13 +198,11 @@ buildTypes {
     }
 }
 ```
-
 <br></br>
 
 
 invoke()</br>
 -'opertor'와 함께 invoke() 함수를 정의하여 클래스 인스턴스를 함수처럼 호출할 수 있다.</br>
-
 ```kotlin
 //invoke 가 사용된 use case 예시
 class FormatDateUseCase(userRepository: UserRepository) {
@@ -181,6 +216,7 @@ class FormatDateUseCase(userRepository: UserRepository) {
     }
 }
 
+
 //use case 호출 예시
 class MyViewModel(formatDataUseCase: FormatDateUseCase): ViewModel() {
     init {
@@ -189,7 +225,6 @@ class MyViewModel(formatDataUseCase: FormatDateUseCase): ViewModel() {
     }
     //...
 }
-
 ```
 
 
