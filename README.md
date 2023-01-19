@@ -1,29 +1,18 @@
 # Useful_Reference
 ---
 
-
-
+1. <a href = "#1">권한</a></br>
+2. <a href = "#2">바인딩</a></br>
+  2.1. dataBinding</br>
+  2.2. viewBinding</br>
+3. <a href = "#3">뷰모델</a></br>
+  3.1 ViewModel에서 Context 필요할 때</br>
+  3.2 LiveData</br>
+  3.3 Observer</br>
 ---
 
-BaseFragment</br>
-https://github.com/HYUNJUNEPARK/-Ref-AndroidUI/blob/main/3_ViewPager2_BottomNavigation/app/src/main/java/com/example/viewpager2_bottomnavigation/util/BaseFragment.kt </br>
--> **원하는 프래그먼트에 상속시킨 후 initView() 를 오버라이딩해 사용 (dataBinding 사용)**</br>
-```kotlin
-//상속 예시
-class AFragment : BaseFragment<FragmentABinding>(R.layout.fragment_a) {
-    override fun initView() {
-        super.initView()
+><a id = "1">1.권한</a>
 
-        binding.apply {
-
-        }
-    }
-}
-```
-<br></br>
-
-
-권한</br>
 ```kotlin
 private val permissionRequestCode = 999
 
@@ -79,6 +68,100 @@ if (PermissionChecker.checkSelfPermission(context, Manifest.permission.CALL_PHON
 <br></br>
 
 
+><a id = "2">2.바인딩</a></br>
+
+2.1.dataBinding
+```
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+    }
+}
+```
+
+2.2.viewBinding
+```kotlin
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+    }
+}
+```
+<br></br>
+
+
+><a id = "3">3.뷰모델</a></br>
+
+3.1 ViewModel에서 Context 필요할 때
+```kotlin
+class MyViewModel(application: Application) : AndroidViewModel(application) {
+    private val context = getApplication<Application>().applicationContext
+
+}    
+```
+
+3.2 LiveData
+```kotlin
+private var _isUserInfoFetching = MutableLiveData<Boolean>()
+val isUserInfoFetching: LiveData<Boolean>
+    get() = _isUserInfoFetching
+```
+
+3.3 observer
+```kotlin
+userInfoViewModel.isUserInfoFetching.observe(this){ isFetching ->
+
+}
+```
+
+<br></br>
+
+
+
+
+
+
+
+
+
+
+BaseFragment</br>
+https://github.com/HYUNJUNEPARK/-Ref-AndroidUI/blob/main/3_ViewPager2_BottomNavigation/app/src/main/java/com/example/viewpager2_bottomnavigation/util/BaseFragment.kt </br>
+-> **원하는 프래그먼트에 상속시킨 후 initView() 를 오버라이딩해 사용 (dataBinding 사용)**</br>
+```kotlin
+//상속 예시
+class AFragment : BaseFragment<FragmentABinding>(R.layout.fragment_a) {
+    override fun initView() {
+        super.initView()
+
+        binding.apply {
+
+        }
+    }
+}
+```
+<br></br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 NetworkConnection</br>
 https://github.com/HYUNJUNEPARK/-Ref-AndoridProgramming/blob/main/8_NetworkConnection/app/src/main/java/com/example/networkstate/NetworkConnectionCheckModule.kt </br>
 -> **Activity onCreate/onDestroy 에 register()/unregister() 해 사용 (생명주기에 맞게 호출해 사용)**</br>
@@ -116,34 +199,7 @@ AlertDialog.Builder(context)
 ```
 <br></br>
 
-바인딩</br>
-1.DataBinding</br>
 
-```
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-    }
-}
-```
-
-2.ViewBinding</br>
-
-```
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-    }
-}
-```
-<br></br>
 
 
 Thread</br>
