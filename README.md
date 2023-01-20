@@ -71,7 +71,7 @@ if (PermissionChecker.checkSelfPermission(context, Manifest.permission.CALL_PHON
 ><a id = "2">2.바인딩</a></br>
 
 2.1.dataBinding
-```
+```kotlin
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
@@ -80,6 +80,10 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
     }
 }
+
+//XML
+//editText.text XML에서 바로 String 파라미터로 사용
+android:onClick="@{()->callViewModel.makeCall(editText.getText().toString())}"
 ```
 
 2.2.viewBinding
