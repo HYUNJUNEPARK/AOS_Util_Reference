@@ -1,4 +1,4 @@
-# Useful_Reference
+# AOS Util Reference
 ---
 
 1. <a href = "#1">권한</a></br>
@@ -9,6 +9,9 @@
   3.1 ViewModel에서 Context 필요할 때</br>
   3.2 LiveData</br>
   3.3 Observer</br>
+  
+<a href = "#ref">참고링크</a></br>  
+
 ---
 
 ><a id = "1">1.권한</a>
@@ -156,16 +159,6 @@ class AFragment : BaseFragment<FragmentABinding>(R.layout.fragment_a) {
 
 
 
-
-
-
-
-
-
-
-
-
-
 NetworkConnection</br>
 https://github.com/HYUNJUNEPARK/-Ref-AndoridProgramming/blob/main/8_NetworkConnection/app/src/main/java/com/example/networkstate/NetworkConnectionCheckModule.kt </br>
 -> **Activity onCreate/onDestroy 에 register()/unregister() 해 사용 (생명주기에 맞게 호출해 사용)**</br>
@@ -202,7 +195,6 @@ AlertDialog.Builder(context)
     .show()
 ```
 <br></br>
-
 
 
 
@@ -289,6 +281,7 @@ class MyViewModel(formatDataUseCase: FormatDateUseCase): ViewModel() {
 
 
 ---
+><a id = "ref">참고 링크</a>
 
 AAR</br>
 Library AAR 파일 생성</br>
