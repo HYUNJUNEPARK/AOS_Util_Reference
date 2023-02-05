@@ -295,15 +295,6 @@ cf).aar 파일을 Project/app/libs 에 복사</br>
 BuildConfig.DEBUG가 릴리즈 모드에서도 true가 되는 현상</br>
 https://satisfactoryplace.tistory.com/147</br>
 
-액션바 뒤로가기 버튼</br>
-https://programmingworld1.tistory.com/15</br>
-
-Status bar 색상 변경</br>
-https://origogi.github.io/android/dark-mode/
-
-커스텀다이얼로그 데이터 바인딩</br>
-https://github.com/HYUNJUNEPARK/BasicAOSApp/blob/main/1_BMICalculator/app/src/main/java/com/june/androidApp/bmicalculator/ResultDialog.kt
-
 파이어베이스 gradle 세팅 방법(gradle 7.x 이상)</br>
 https://gift123.tistory.com/68</br>
 https://developer.android.com/studio/releases/gradle-plugin?hl=ko#updating-plugin</br>
