@@ -139,7 +139,7 @@ val intent: Intent = packageManager.getLaunchIntentForPackage(packageName)!!
 val componentName: ComponentName? = intent.component
 val mainIntent = Intent.makeRestartActivityTask(componentName)
 startActivity(mainIntent)
-Runtime.getRuntime().exit(0)
+exitProcess(0)
 ```
 <br></br>
 
