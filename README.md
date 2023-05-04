@@ -9,7 +9,8 @@
   3.1 ViewModel에서 Context 필요할 때</br>
   3.2 LiveData</br>
   3.3 Observer</br>
-  
+4. <a href = "#4">앱 재시작 코드</a></br>
+
 <a href = "#ref">참고링크</a></br>  
 
 ---
@@ -131,8 +132,16 @@ userInfoViewModel.isUserInfoFetching.observe(this){ isFetching ->
 <br></br>
 
 
-
-
+><a id = "4">4.앱 재시작 코드</a></br>
+```kotlin
+val packageManager: PackageManager = packageManager
+val intent: Intent = packageManager.getLaunchIntentForPackage(packageName)!!
+val componentName: ComponentName? = intent.component
+val mainIntent = Intent.makeRestartActivityTask(componentName)
+startActivity(mainIntent)
+Runtime.getRuntime().exit(0)
+```
+<br></br>
 
 
 
@@ -316,3 +325,6 @@ https://gift123.tistory.com/68</br>
 
 Kotlin Enum Class Ex</br>
 https://blog.logrocket.com/kotlin-enum-classes-complete-guide/</br>
+
+앱 재시작 코드</br>
+https://stackoverflow.com/questions/6609414/how-do-i-programmatically-restart-an-android-app</br>
