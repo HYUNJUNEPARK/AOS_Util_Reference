@@ -88,6 +88,23 @@ class MainActivity : AppCompatActivity() {
 //XML
 //editText.text XML에서 바로 String 파라미터로 사용
 android:onClick="@{()->callViewModel.makeCall(editText.getText().toString())}"
+
+
+class EcdhFragment : Fragment() {
+    private var _binding: FragmentEcdhBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ecdh, container, false)
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}
+
 ```
 
 2.2.viewBinding
