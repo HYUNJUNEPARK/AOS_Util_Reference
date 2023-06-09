@@ -148,7 +148,6 @@ userInfoViewModel.isUserInfoFetching.observe(this){ isFetching ->
 
 }
 ```
-
 <br></br>
 
 
@@ -171,11 +170,15 @@ val accountTypeList = resources.getStringArray(R.array.account_purpose)
 val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, accountTypeList)
 binding.fragMainToolbarSpinner.adapter = adapter
 ```
+
 5.2 동적 스피너
 ```kotlin
-
+val useType = arrayListOf("a", "b", "c")
+val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, useType)
+adapter.setDropDownViewResource(androidx.transition.R.layout.support_simple_spinner_dropdown_item)
+binding.fragMainToolbarSpinner.adapter = adapter  
 ```
-
+<br></br>
 
 
 
