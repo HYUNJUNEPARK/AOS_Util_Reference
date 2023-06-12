@@ -9,6 +9,7 @@
   3.1 ViewModel에서 Context 필요할 때</br>
   3.2 LiveData</br>
   3.3 Observer</br>
+    *https://jslee-tech.tistory.com/45</br>
 4. <a href = "#4">앱 재시작 코드</a></br>
 5. <a href = "#5">스피너</a></br>
   5.1 정적 스피너</br>
