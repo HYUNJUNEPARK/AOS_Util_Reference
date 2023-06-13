@@ -14,6 +14,8 @@
 5. <a href = "#5">스피너</a></br>
   5.1 정적 스피너</br>
   5.2 동적 스피너</br>
+6. <a href = "#6">웹뷰</a></br>
+
 
 <a href = "#ref">참고링크</a></br>  
 
@@ -181,8 +183,18 @@ binding.fragMainToolbarSpinner.adapter = adapter
 ```
 <br></br>
 
+><a id = "6">6.웹뷰</a></br>
+```kotlin
+<WebView
+    android:id="@+id/webview"
+    
+...
 
-
+val data = remoteData.jsData //ex. <p>공지!!!!테스트</p><p><br></p><p><img src=\ .....<br></p><p><br></p>
+binding.webview.settings.javaScriptEnabled = true
+binding.webview.loadDataWithBaseURL(null, data!!, "text/html; charset=utf-8", "UTF-8", null)
+```
+<br></br>
 
 
 
