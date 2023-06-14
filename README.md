@@ -190,8 +190,13 @@ binding.fragMainToolbarSpinner.adapter = adapter
     
 ...
 
+//cf.[Android] WebView 설정 모아보기 https://kyome.tistory.com/149
 val data = remoteData.jsData //ex. <p>공지!!!!테스트</p><p><br></p><p><img src=\ .....<br></p><p><br></p>
-binding.webview.settings.javaScriptEnabled = true
+binding.webview.settings.settings.apply {
+    useWideViewPort = true //페이지에 뷰포트 메타가 있으면 태그에 지정된 너비 값이 사용된다.
+    loadWithOverviewMode = true //컨텐츠가 웹뷰보다 클때 스크린 크기에 맞춘다
+    javaScriptEnabled = true //자바스크립트 사용 여부
+}
 binding.webview.loadDataWithBaseURL(null, data!!, "text/html; charset=utf-8", "UTF-8", null)
 ```
 <br></br>
