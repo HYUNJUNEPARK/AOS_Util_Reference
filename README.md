@@ -388,3 +388,6 @@ https://blog.logrocket.com/kotlin-enum-classes-complete-guide/</br>
 
 앱 재시작 코드</br>
 https://stackoverflow.com/questions/6609414/how-do-i-programmatically-restart-an-android-app</br>
+
+Cannot resolve symbol 'v7' 오류 해결(오래된 프로젝트 빌드 에러)</br>
+https://velog.io/@wonggamggik/Cannot-resolve-symbol-v7-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0</br>
