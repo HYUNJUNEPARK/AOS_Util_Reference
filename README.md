@@ -154,13 +154,20 @@ userInfoViewModel.isUserInfoFetching.observe(this){ isFetching ->
 <br></br>
 
 
-><a id = "4">4.앱 재시작 코드</a></br>
+><a id = "4">4.앱 재시작/종료 코드</a></br>
 ```kotlin
+//재시작
 val packageManager: PackageManager = packageManager
 val intent: Intent = packageManager.getLaunchIntentForPackage(packageName)!!
 val componentName: ComponentName? = intent.component
 val mainIntent = Intent.makeRestartActivityTask(componentName)
 startActivity(mainIntent)
+exitProcess(0)
+```
+
+```
+//종료
+requireActivity().finishAffinity()
 exitProcess(0)
 ```
 <br></br>
